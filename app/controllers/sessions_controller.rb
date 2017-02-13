@@ -14,6 +14,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def logout
+    session.delete(:user_id)
+    flash[:status] = "Successfully logged out"
+    redirect_to login_path
+  end
+
   private
 
   def authenticate_params
