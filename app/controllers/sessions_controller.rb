@@ -20,6 +20,14 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
+  def secret
+    if session[:user_id]
+      render :secret
+    else
+      redirect_to login_path
+    end
+  end
+
   private
 
   def authenticate_params
